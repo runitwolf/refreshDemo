@@ -38,47 +38,47 @@ public class MeiTuanRefreshManager extends BaseRefreshManager {
     //释放刷新的时候 会 变成  美团的 吉祥物
     @Override
     public void releaseRefresh() {
-        mImagView.setImageResource(R.drawable.mei_tuan_loading_pre);
-        AnimationDrawable mAnimationDrawable= (AnimationDrawable) mImagView.getDrawable();
-        mAnimationDrawable.start();
+//        mImagView.setImageResource(R.drawable.mei_tuan_loading_pre);
+//        AnimationDrawable mAnimationDrawable= (AnimationDrawable) mImagView.getDrawable();
+//        mAnimationDrawable.start();
         tv_state.setText("释放刷新");
 
-        //        setAnim();
+                setAnim();
     }
 
     @Override
     public void iddleRefresh() {
-        mImagView.clearAnimation();
-        mImagView.setImageResource(R.mipmap.pull_image);
-        mImagView.setScaleX(0);
-        mImagView.setScaleY(0);
+//        mImagView.clearAnimation();
+//        mImagView.setImageResource(R.mipmap.pull_image);
+//        mImagView.setScaleX(0);
+//        mImagView.setScaleY(0);
 
-//        setAnim();
+        setAnim();
     }
 
     //正在刷新的状态实际上也是一个帧动画
     @Override
     public void refreshing() {
-        mImagView.setImageResource(R.drawable.mei_tuan_loading);
-//        setAnim();
+//        mImagView.setImageResource(R.drawable.mei_tuan_loading);
+        setAnim();
         tv_state.setText("正在刷新");
     }
 
     @Override
     public void downRefreshPercent(float precent) {
-        mImagView.setScaleX(precent);
-        mImagView.setScaleY(precent);
-//        setAnim();
+//        mImagView.setScaleX(precent);
+//        mImagView.setScaleY(precent);
+        setAnim();
         tv_state.setText("下拉刷新");
     }
 
     @Override
     public void overRefresh() {
-//        mImagView.setImageResource(R.drawable.mei_tuan_loading);
-//        AnimationDrawable mAnimationDrawable= (AnimationDrawable) mImagView.getDrawable();
-//        mAnimationDrawable.start();
+        mImagView.setImageResource(R.drawable.mei_tuan_loading);
+        AnimationDrawable mAnimationDrawable= (AnimationDrawable) mImagView.getDrawable();
+        mAnimationDrawable.start();
 
-//        setAnim();
+        setAnim();
         tv_state.setText("刷新完成");
     }
 
